@@ -1,0 +1,11 @@
+# Template: <workspace>/dotfiles/git/config
+# Wire it into ~/.gitconfig once (trailing slash = recursive to all repos under the workspace):
+#   [includeIf "gitdir:<workspace>/"]
+#       path = <workspace>/dotfiles/git/config
+# git reads this from disk on every run, so it applies in the terminal AND in any GUI
+# (WebStorm, Fork, …) — no shell/env/direnv involved.
+[user]
+	name = NAME
+	email = EMAIL
+[core]
+	sshCommand = ssh -i <workspace>/dotfiles/ssh/id_ed25519 -o IdentitiesOnly=yes
