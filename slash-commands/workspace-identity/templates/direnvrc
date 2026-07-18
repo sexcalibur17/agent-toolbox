@@ -1,0 +1,13 @@
+# Template: ~/.config/direnv/direnvrc  (shared helpers, sourced before every .envrc)
+
+# git_identity NAME EMAIL
+# Injects git user.* as real config at highest precedence, so it drives BOTH
+# author and committer AND shows up in `git config user.email`. Keep
+# GIT_CONFIG_COUNT equal to the number of KEY/VALUE pairs if you add more.
+git_identity() {
+  export GIT_CONFIG_COUNT=2
+  export GIT_CONFIG_KEY_0=user.name
+  export GIT_CONFIG_VALUE_0="$1"
+  export GIT_CONFIG_KEY_1=user.email
+  export GIT_CONFIG_VALUE_1="$2"
+}
